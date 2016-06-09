@@ -46,8 +46,25 @@ var fillGrid = function(string,side) {
     var rowArray = stringArray.splice(0, side);
     arrayOfRows.push(rowArray);
   };
-  alert(arrayOfRows);
-  console.log(arrayOfRows);
+  return arrayOfRows;
+};
+
+var cryptoBuilder = function(grid,side) {
+  var rearrangedArray = [];
+  for (i = 0; i < side; i++ ) {
+    for (j = 0; j < side; j++) {
+        rearrangedArray.push(grid[j][i]);
+    };
+  };
+  var shadowArray = rearrangedArray.map(function(arranged) {
+    return arranged = arranged});
+    var rearrangedArrayLength = shadowArray.length;
+  for (i = 4; i < side * side / 5; i= i + 5) {
+    rearrangedArray.splice(i, 0," ");
+  }
+  var encryptedString = rearrangedArray.join("");
+  alert(encryptedString);
+
 };
 
 
@@ -58,6 +75,7 @@ $(document).ready(function() {
     formattedString = formatString(inputString);
     var gridSide = getGrid(formattedString.length);
     var fullGrid = fillGrid(formattedString,gridSide);
+    var finalString = cryptoBuilder(fullGrid,gridSide);
 
     event.preventDefault();
   });
